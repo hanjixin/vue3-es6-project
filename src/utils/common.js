@@ -11,20 +11,7 @@ export function getValueFromKVs(_list, _id) {
   return obj.value;
 }
 
-/**
- * 是否Int类型的数据
- * @param {string} str
- */
-export const isIntNumber = function (str) {
-  const regPos = /^\d+$/; // 非负整数
-  const regNeg = /^\-[1-9][0-9]*$/; // 负整数
-  if (isInvlidData(str)) {
-    if (str.toString().match(regPos) || str.toString().match(regNeg)) {
-      return true;
-    }
-  }
-  return false;
-}
+
 
 /**
  * 是否是合法的下标
