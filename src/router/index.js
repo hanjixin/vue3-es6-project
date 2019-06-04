@@ -21,4 +21,9 @@ const router =  new Router({
     }
   ]
 })
+router.beforeEach((from, to , next) => {
+  // 路由拦截
+  console.log(from, to)
+  next()
+})
 export default router

@@ -1,7 +1,5 @@
 import axios from 'axios'
-import {
-  Message
-} from 'element-ui'
+
 import store from '../store'
 import {
   getToken,
@@ -18,18 +16,13 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     if (store.getters.token) {
-      config.headers['Qlz-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+      config.headers['token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     }
     return config
   },
   error => {
     // Do something with request error
-    console.log(error) // for debug
-    Message({
-      message: error.message,
-      type: 'error',
-      duration: 5 * 1000
-    })
+    
     return Promise.reject(error)
   }
 )
@@ -67,7 +60,6 @@ service.interceptors.response.use(
   //       return response.data;
   //     }
   err => {
-    // console.log('errwww' + err)// for debug
     console.info(err);
     if (err && err.response) {
       switch (err.response.status) {
@@ -141,11 +133,7 @@ service.interceptors.response.use(
           break
       }
     }
-    Message({
-      message: err.message,
-      type: 'error',
-      duration: 3 * 1000
-    })
+    console.log(err.message)
     return Promise.reject(err.response)
   }
 )

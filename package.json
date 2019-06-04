@@ -36,7 +36,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "gitHooks": {
-    "pre-commit": ""
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": [
