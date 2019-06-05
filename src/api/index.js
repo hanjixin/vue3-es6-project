@@ -1,7 +1,12 @@
 import request from '@/utils/request'
 function requestHandle (res) {
-  return new Promise(() => {
+  return new Promise((resolve, reject) => {
     console.log(res)
+    if(res.status == 200) {
+      resolve(res)
+    } else {
+      reject(res)
+    }
   })
 }
 export  function apiRequest( obj = { 
@@ -16,8 +21,10 @@ export  function apiRequest( obj = {
     delete obj.params
   }
   return request(obj).then(res => {
+    console.log('then')
     return requestHandle(res)
   }).catch(err => {
+    console.log('catch', JSON.stringify(err))
     return requestHandle(err)
   })
   

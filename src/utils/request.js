@@ -61,7 +61,7 @@ service.interceptors.response.use(
   //       return response.data;
   //     }
   err => {
-    console.info(err);
+    console.dir(err);
     if (err && err.response) {
       switch (err.response.status) {
         case 400:
