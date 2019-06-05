@@ -4,9 +4,7 @@ import {
   setToken,
   removeToken
 } from '@/utils/auth'
-
-function login (){}
-function logout (){}
+import { login, loginout } from '@/api/login'
 const user = {
   state: {
     token: getToken(),
@@ -70,7 +68,7 @@ const user = {
       state
     }) {
       return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
+        loginout(state.token).then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
           removeToken()
