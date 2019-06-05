@@ -7,8 +7,9 @@ import {
 } from '@/utils/auth'
 
 // 创建axios实例
+console.log(process.env)
 const service = axios.create({
-  baseURL: process.env.BASE_API, // api 的 base_url
+  baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
   timeout: 10 * 1000 // 请求超时时间, 10秒
 })
 
