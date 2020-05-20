@@ -21,6 +21,8 @@
 
 - request Handle
 
+- 兼容 IE 11 
+
 - build clear 开发日志
 
 - src/utils 常用工具
